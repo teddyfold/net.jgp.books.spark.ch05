@@ -79,18 +79,18 @@ public class PiComputeClusterApp implements Serializable {
     SparkSession spark = SparkSession
         .builder()
         .appName("JavaSparkPi on a cluster")
-        .master("spark://un:7077")
-        .config("spark.executor.memory", "4g")
+        .master("spark://iMac-Pro.local:7077")
+        .config("spark.executor.memory", "1g")
         // Uncomment the next block if you want to run your application from
         // the IDE - note that you will have to deploy the jar first to
         // *every* worker. Spark can share a jar from which it is launched -
         // either via spark-submit or via a direct connection, but if you
         // run this application from the IDE, it will not know what to do.
-        /*
-         * .config("spark.jars",
-         * "/home/jgp/.m2/repository/net/jgp/books/sparkWithJava-chapter05/1.0.0-SNAPSHOT/sparkWithJava-chapter05-1.0.0-SNAPSHOT.jar")
-         */
-        .getOrCreate();
+        .config("spark.jars", "/Users/zhilin/.m2/repository/net/jgp/books/spark-in-action2-chapter05/1.0.0-SNAPSHOT/spark-in-action2-chapter05-1.0.0-SNAPSHOT-uber.jar")
+            .getOrCreate();
+
+
+
 
     long t1 = System.currentTimeMillis();
     System.out.println("Session initialized in " + (t1 - t0) + " ms");
